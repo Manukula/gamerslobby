@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GamersLobby</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Roboto&family=Titillium+Web&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="Styles.css">
+  <link rel="stylesheet" href="script.js">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    .header {
+      min-height: 40vh;
+      width: 100%;
+      background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('P/image0_0.jpg');
+      background-size: cover;
+      background-position: 0% center;
+      background-repeat: no-repeat;
+      animation: slideBg 20s linear infinite;
+      position: relative;
+    
+    }
+    
+    @keyframes slideBg {
+    from {
+        background-position: 0% center;
+    }
+    to {
+        background-position: 100% center;
+    }
+    }
+
+    nav {
+      display: flex;
+      padding: 2% 6%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      flex: 1;
+      text-align: right;
+    }
+
+    .nav-links ul {
+      list-style: none;
+    }
+
+    .nav-links ul li {
+      display: inline-block;
+      padding: 8px 12px;
+      position: relative;
+    }
+
+    .nav-links ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .nav-links ul li::after {
+      content: '';
+      width: 0%;
+      height: 2px;
+      background: #f44336;
+      display: block;
+      margin: auto;
+      transition: 0.5s;
+    }
+
+    .nav-links ul li:hover::after {
+      width: 100%;
+    }
+
+    nav .fa-bars,
+    nav .fa-times {
+      display: none;
+    }
+
+    /* Responsive nav styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        background: transparent;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 0.5s;
+      }
+
+      .nav-links ul {
+        display: block;
+        padding: 30px;
+      }
+
+      .nav-links ul li {
+        display: block;
+        margin: 20px 0;
+      }
+
+      nav .fa-bars,
+      nav .fa-times {
+        display: block;
+        color: #fff;
+        font-size: 28px;
+        cursor: pointer;
+      }
+    }
+    
+
+    
+#three {
+                background-color: #fff0;
+                padding: 60px 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .services {
+                max-width: 90px;
+                display: flex;
+                flex-wrap: wrap;
+                background-color: #fff;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .services img {
+                width: 70%;
+                max-width: 300px;
+                object-fit: cover;
+                height: 20%;
+                flex: 1 1 50%;
+            }
+
+            .services p {
+                flex: 1 1 50%;
+                padding: 10px;
+                font-size: 10px;
+                line-height: 1.6;
+                color: #333;
+            }
+
+            .news-section {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 60px 20px;
+                }
+
+            .news-section h2 {
+                text-align: center;
+                font-size: 2.2rem;
+                margin-bottom: 40px;
+                position: relative;
+                }
+
+            .news-section h2::after {
+                content: '';
+                width: 60px;
+                height: 3px;
+                background-color: orange;
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                }
+
+            .news-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+                }
+
+            .news-card {
+                background: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+                display: flex;
+                flex-direction: column;
+                }
+
+            .news-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+
+            }
+
+            .news-card img1 {
+                width: 100%; /* Adjust width as needed */
+                height: 80%;
+            }
+
+            .news-content {
+                padding: 20px;
+                flex-grow: 1;
+            }
+
+            .news-content h3 {
+            font-size: 1.3rem;
+            color: orange;
+            margin-bottom: 10px;
+            }
+
+            .news-content p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            }
+
+            /* section play  */
+            .play {
+            width: 100%;
+            padding: 60px 20px;
+            background: #f513b5; /* light background for contrast */
+        }
+
+        .container {
+            width: 100%;
+            margin: 100px 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .box {
+            width: 250px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 10px;
+            background: white;
+            transition: transform 0.3s ease;
+            position: relative; /* Ensure proper positioning for the hover effect */
+
+        }
+
+        .box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+        }
+        .box img:nth-child(2) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease; /* Smooth transition */
+        }
+
+        .box:hover img:nth-child(2) {
+            opacity: 1; /* Show the second image on hover */
+        }
+
+        .play .box img {
+            width: 100%; /* Ensure the image fills the box */
+            height: 250px; /* Set a fixed height */
+            object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+            border-radius: 10px; /* Add rounded corners */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+          }
+
+         .play .box img:hover {
+            transform: scale(1.05); /* Slightly enlarge the image on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add a shadow effect on hover */
+        }
+
+        .play h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+            color: white; /* or change it based on the background color */
+        }
+
+        .play h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: orange;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+
+        /* the img of diy section */
+        .DIY {
+            padding: 60px 20px;
+            background: linear-gradient(to right, #f513b5, #ff8c00);
+            text-align: center;
+            color: white;
+        }
+
+        .DIY h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .DIY h2 {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel img {
+            height: 300px;
+            object-fit: cover;
+            margin-right: 14px;
+            border-radius: 10px;
+        }
+
+        .carousel img:last-child {
+            margin-right: 0;
+        }
+
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .controls i {
+            height: 50px;
+            width: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        .controls i:hover {
+            background: lightgray;
+        }
+
+         /* welcom from the index page */
+
+      .welcome {
+        background: linear-gradient(to right, #3a86ff, #8338ec, #ff006e);
+        color: white;
+        padding: 60px 20px;
+        text-align: center;
+        border-radius: 10px;
+        margin: 40px auto;
+        max-width: 1200px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .welcome-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .welcome h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    
+    .welcome p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+    
+    .welcome-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 30px;
+        background-color: #ffbe0b;
+        color: #333;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .welcome-btn:hover {
+        background-color: #ff8c00;
+        transform: scale(1.05);
+
+    }
+  </style>
+</head>
+<body>
+
+  <section class="header">
+    <nav>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="news.html">news</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </section>
+
+   <section class="welcome">
+        <div class="welcome-container">
+            <h1>Welcome to GamersLobby</h1>
+            <p>
+  We are a community of gamers, coders, and tech enthusiasts dedicated to delivering the ultimate digital experience. Whether you're seeking computer repairs, performance upgrades, game recommendations, or just want to connect with like-minded people — you’ve found the right place!
+</p>
+
+<p>
+  Our mission is to build a vibrant, inclusive space where gaming and coding go hand in hand. We believe that just like mastering a game, learning to code unlocks new worlds — from modding your favorite titles to building your own. Whether you're a casual gamer, a competitive player, or an aspiring developer, there’s a place for you here.
+</p>
+
+<p>
+  We're not just playing — we're creating. Our community encourages members to take their passion to the next level by exploring game development, building gaming tools, and even preparing for coding competitions and hackathons. We aim to sharpen both our reflexes and our logic — because in our world, gaming and coding are two sides of the same controller.
+</p>
+
+<p>
+  Join us, level up your skills, and let’s push the boundaries of what we can build — together.
+</p>
+           
+        </div>
+    </section>
+
+    
+
+    <section class="news-section">
+        <h2>What do you want know</h2>
+        <div class="news-grid">
+            <!-- <div class="news-card">
+                <img src="image1_0 (1).jpg" alt="News 1">
+                <div class="news-content">
+                    <h3>Computer Support</h3>
+                    <p>Our team specializes in entry-level computer repairs and upgrades to improve performance. We also handle software installations and resolve issues with crashed or malfunctioning Windows systems.<br>
+                        <a href="read more.html" target="_blank">Read more</a>
+                    </p>
+                </div>
+            </div> -->
+    
+            <div class="news-card">
+                <img src="P/image0_0 (1).jpg" alt="News 2">
+                <div class="news-content">
+                    <h3>Gamage Link up</h3>
+                    <p>Combine education with gaming, and remember — you don’t have to play alone. Connect and team up with players in western cape through platforms like Steam, Epic Games, Xbox, and PlayStation.<br>
+                        Stay in touch with us. <a href="news.html" target="_blank">Read more</a>
+                    </p>
+                </div>
+            </div>
+    
+            <!-- <div class="news-card">
+                <img src="Blue Retro Pixel Birthday Poster.png" alt="News 3">
+                <div class="news-content">
+                    <h3>Need a Poster</h3>
+                    <p>Whether you need a digital or physical poster, our team is more than capable of bringing your vision to life. With creativity, skill, and attention to detail, we’re ready to design eye-catching posters tailored to your needs.<br>
+                        <a href="read more.html" target="_blank">Read more</a>
+                    </p>
+                </div>
+            </div> -->
+    
+            <div class="news-card">
+                <img src="P/tournment 1.jpg" alt="Our Events">
+                <div class="news-content">
+                    <h3>Our Events</h3>
+                    <p>Our events will mostly take place in the city of George.<br>
+                        <a href="news.html" target="_blank">Read more</a>
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Fixed "DIY" news card -->
+            <div class="news-card">
+                <img src="P/DIY.jpg" alt="DIY">
+                <div class="news-content">
+                    <h3>DIY</h3>
+                    <p>Did you know that you can fix your computer<br>
+                        just by doing these little things?<br>
+                        <a href="DIY.html" target="_blank">Read more</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+
+    <!-- section for the DIY images -->
+
+    <section class="DIY">
+        <h1>DIY</h1>
+        <h2>Discover the best perks about your gaming platform. Click below to explore!</h2>
+        <div class="wrapper">
+            <div class="carousel">
+                <a href="DIY.html" target="_blank">
+                    <img src="playstation p.jpg" alt="PlayStation">
+                </a>
+                <a href="DIY.html" target="_blank">
+                    <img src="XBOX p.jpg" alt="Xbox">
+                </a>
+                <a href="DIY.html" target="_blank">
+                    <img src="steam.jpg" alt="Steam">
+                </a>
+                <a href="DIY.html" target="_blank">
+                    <img src="/OIP (1).jpeg" alt="Other">
+                </a>
+            </div>
+            <div class="controls">
+                <i class="prev" onclick="moveCarousel(-1)">&#10094;</i>
+                <i class="next" onclick="moveCarousel(1)">&#10095;</i>
+            </div>
+        </div>
+    </section>
+
+
+
+      <!-- gmaae advertisemts -->
+
+      <section class="play">
+        <h2>Choose your Game</h2>
+        <div class="container">
+            <div class="box">
+                <a href="news.html" target="_blank">
+                    <img src="fc 25.jpeg" alt="Game 1">
+                </a>
+            </div>
+            <div class="box">
+                <a href="news.html" target="_blank">
+                    <img src="street fighter.jpeg" alt="Game 2">
+                    <img src="naruto-shippuden-ultimate-ninja-storm-4.jpg" alt="game 2.2">
+                </a>
+            </div>
+            <div class="box">
+                <a href="news.html" target="_blank">
+                    <img src="apex.jpeg" alt="Game 3">
+                </a>
+            </div>
+            <div class="box">
+                <a href="news.html" target="_blank">
+                    <img src="P/CODCOnsole).jpeg" alt="Game 4">
+                    <img src="P/call of duty mobile).jpeg" alt="Game 4.2">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- cemment section -->
+    <section class="comment-section">
+        <h2>Leave a Comment</h2>
+        <form id="commentForm">
+          <textarea id="commentInput" name="comment" placeholder="Your comment..." required></textarea>
+          <button type="button" onclick="postComment()">leave a comment</button>
+        </form>
+        <div id="postedEmailSection" class="posted-email" style="display: none;">
+          <h3>anonymous</h3>
+          <p id="postedComment"></p>
+        </div>
+      </section>
+      
+      <!-- Add this to your HTML file
+      <div id="comments"></div>
+      <input id="commentInput" type="text" maxlength="200">
+      <button id="commentButton" onclick="addComment()">Add Comment</button> -->
+
+     <!-- Footer -->
+     <footer style="background-color: #000; color: white; padding: 40px 20px; text-align: center;">
+  
+        <div style="margin-bottom: 10px;">
+          <strong>Gamers Lobby</strong>
+          <span style="color: #fdd835;">gam3rslobby@gmail.com</span>
+        </div>
+        <div style="font-size: 12px; color: #aaa;">
+       
+        </div>
+      </footer>
+    </section>
+
+  <script>
+    const navLinks = document.getElementById("navLinks");
+
+    function showMenu() {
+      navLinks.style.right = "0";
+    }
+
+    function hideMenu() {
+      navLinks.style.right = "-200px";
+    }
+
+       function postComment() {
+        // Get the comment input value
+        const commentInput = document.getElementById('commentInput').value;
+
+        // Check if the input is empty
+        if (!commentInput.trim()) {
+            alert('Please enter a comment before posting.');
+            return;
+        }
+
+        // Display the posted email section
+        const postedEmailSection = document.getElementById('postedEmailSection');
+        const postedComment = document.getElementById('postedComment');
+        postedComment.textContent = commentInput;
+        postedEmailSection.style.display = 'block';
+
+        // Clear the input field
+        document.getElementById('commentInput').value = '';
+    }
+
+
+    // DIy js section Code
+
+    const carousel = document.querySelector('.carousel');
+        let scrollAmount = 0;
+
+        function moveCarousel(direction) {
+            const scrollWidth = carousel.scrollWidth - carousel.clientWidth;
+            const itemWidth = carousel.children[0].clientWidth + 14; // Image width + margin
+            scrollAmount += direction * itemWidth;
+
+            if (scrollAmount < 0) {
+                scrollAmount = 0;
+            } else if (scrollAmount > scrollWidth) {
+                scrollAmount = scrollWidth;
+            }
+
+            carousel.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+
+        function addComment() {
+  const input = document.getElementById('commentInput');
+  const button = document.getElementById('commentButton');
+  const text = input.value.trim();
+  if (!text) return;
+  let comments = getComments();
+  if (comments.length >= MAX_COMMENTS) {
+    alert('Only 3 comments allowed at a time.');
+    return;
+  }
+  comments.push({ text, timestamp: Date.now() });
+  localStorage.setItem('comments', JSON.stringify(comments));
+  input.value = '';
+  renderComments();
+
+  // Disable button for 3 seconds
+  button.disabled = true;
+  setTimeout(() => {
+    button.disabled = false;
+  }, 3000);
+}
+  </script>
+
+</body>
+</html>
